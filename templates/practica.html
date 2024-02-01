@@ -1,0 +1,47 @@
+{% extends "layout2.html" %}
+
+{% block container %}
+{% import "_macros.html" as macros %}
+
+    <form action="" method="post">
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.macroPrac(form.distancia1,class='form-control')}}
+            </div>
+        </div>
+
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.macroPrac(form.distancia2,class='form-control')}}
+            </div>
+        </div>
+
+        <div class="row control- group" >
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.macroPrac(form.distancia3,class='form-control')}}
+            </div>
+        </div>
+
+        <div class="row control- group" >
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.macroPrac(form.distancia4,class='form-control')}}
+            </div>
+        </div>
+        <input type="submit" id="btn1" name="btn1" value="Registrar">
+        
+        
+        
+
+    </form>
+
+    <h1>Distancia: {{disp}}</h1>
+    
+
+{%endblock%}
+
+
+
