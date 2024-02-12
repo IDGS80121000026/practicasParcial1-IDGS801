@@ -1,0 +1,99 @@
+{% extends "layout2.html" %}
+
+{% block container %}
+{% import "_macros.html" as macros %}
+
+    <form action="" method="post">
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols display-flex" >
+                
+                <select name="color1" id="color1">
+                    <option value="0">Negro</option>
+                    <option value="1">Cafe</option>
+                    <option value="2">Rojo</option>
+                    <option value="3">Naranja</option>
+                    <option value="4">Amarillo</option>
+                    <option value="5">Verde</option>
+                    <option value="6">Azul</option>
+                    <option value="7">Violeta</option>
+                    <option value="8">Gris</option>
+                    <option value="9">Blanco</option>
+                </select>
+
+                <select name="color2" id="color2">
+                    <option value="0">Negro</option>
+                    <option value="1">Cafe</option>
+                    <option value="2">Rojo</option>
+                    <option value="3">Naranja</option>
+                    <option value="4">Amarillo</option>
+                    <option value="5">Verde</option>
+                    <option value="6">Azul</option>
+                    <option value="7">Violeta</option>
+                    <option value="8">Gris</option>
+                    <option value="9">Blanco</option>
+                </select>
+
+                <select name="color3" id="color3">
+                    <option value="1">Negro</option>
+                    <option value="10">Cafe</option>
+                    <option value="100">Rojo</option>
+                    <option value="1000">Naranja</option>
+                    <option value="10000">Amarillo</option>
+                    <option value="100000">Verde</option>
+                    <option value="1000000">Azul</option>
+                    <option value="10000000">Violeta</option>
+                    <option value="100000000">Gris</option>
+                    <option value="1000000000">Blanco</option>
+                </select>
+
+                <select name="tolerancia" id="tolerancia">
+                    <option value="5">Dorado</option>
+                    <option value="10">Plata</option>
+                </select>
+            </div>
+        </div>
+
+       
+        
+
+        <div class="row control- group " >
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols " style="padding-top: 50px;">
+                
+                <button type="submit" id="btn1" name="btn1" class="btn btn-info">Registrar</button>
+                
+            
+            </div>
+        </div>
+        
+        
+        
+        
+
+    </form>
+
+    <h1>Total: {{total}}</h1>
+    <table class="default">
+        <tr>
+          <td>Color 1</td>
+          <td>Color 2</td>
+          <td>Color 3</td>
+          <td>Tolerancia</td>
+          <td>Maximo</td>
+          <td>Minimo</td>
+        </tr>
+        <tr>
+          <td bgcolor="{{horale}}">{{co1}}</td>
+          <td bgcolor="{{horale2}}">{{co2}}</td>
+          <td bgcolor="{{horale3}}">{{co3}}</td>
+          <td bgcolor="{{tole}}">{{tol}}</td>
+          <td>{{maxim}}</td>
+          <td>{{minm}}</td>
+        </tr>
+      </table>
+      
+    
+
+{%endblock%}
+
+
+
