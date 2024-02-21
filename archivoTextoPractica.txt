@@ -1,0 +1,9 @@
+
+blue,azul
+hello,hola
+yes,si
+orange,naranja
+cat,gato
+skirt,falda
+violet,violeta
+pink,rosa

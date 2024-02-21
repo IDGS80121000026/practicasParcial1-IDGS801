@@ -1,9 +1,10 @@
 from flask import Flask,render_template, request
-
+from io import open
 import forms
 import math
 
 app=Flask(__name__)
+
 
 @app.route("/OperasBas")
 def operas():
@@ -42,6 +43,58 @@ def prac():
         print('dkd {}'.format(disp))
     
     return render_template("practica.html",form=distancia_clase,disp=disp, distancia1=distancia1, distancia2=distancia2, distancia3=distancia3, distancia4=distancia4)
+
+
+@app.route("/archivoText",methods=['GET','POST'])
+def archivoText():
+    ing=''
+    espa=''
+    radio=''
+    palabra=''
+    palabraResul = ''
+    
+    diccionarioPalabras = {}
+    archivos_clase = forms.UserForm2(request.form)
+    if request.method=='POST' and request.form['btnO'] =='0':
+        
+        archivoT=open('archivoTextoPractica.txt','a')
+        ing=archivos_clase.ing.data
+        espa=archivos_clase.espa.data
+        archivoT.write(f'\n{ing},{espa}')
+        
+    if request.method=='POST' and request.form['btnO'] =='1':
+    
+        
+        radio =archivos_clase.radio.data
+        palabra = archivos_clase.palabra.data
+        
+        print('ahorale pues {}'.format(palabra))
+        
+        if radio == 'espanol':
+            with open('archivoTextoPractica.txt', 'r', encoding='utf-8') as archivo:
+                for linea in archivo:
+                    partes = linea.strip().split(',')
+                    if len(partes) == 2:
+                        key = partes[1].strip().upper()
+                        value = partes[0].strip().upper()
+                        diccionarioPalabras[key] = value
+        elif radio == 'ingles':
+            with open('archivoTextoPractica.txt', 'r', encoding='utf-8') as archivo:
+                for linea in archivo:
+                    partes = linea.strip().split(',')
+                    if len(partes) == 2:
+                        key = partes[1].strip().upper()
+                        value = partes[0].strip().upper()
+                        diccionarioPalabras[key] = value
+
+        if palabra.upper() in diccionarioPalabras:
+            palabraResul = diccionarioPalabras[palabra.upper()]
+        else:
+            menWar = 'La palabra no se encuentra en el archivo'
+  
+        
+    return render_template("textoArchivo.html",form=archivos_clase,espa=espa, ing=ing, radio=radio, palabra=palabra,palabraResul=palabraResul)
+
     
 @app.route("/resistencia",methods=['GET','POST'])
 def resistencia():
@@ -184,9 +237,6 @@ def resistencia():
         
     print('dkd {}'.format(total))        
     return render_template("resistencia.html",form=resistencia_clase,color1=color1, color2=color2, color3=color3, tolerancia=tolerancia, total=total,maxim=maxim, minm=minm, co1=co1,co2=co2,co3=co3,tol=tol,horale=horale, horale2=horale2,horale3=horale3,tole=tole)
-        
-        
-        
     
         
 if __name__=="__main__":

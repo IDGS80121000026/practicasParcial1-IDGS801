@@ -1,0 +1,50 @@
+{% extends "layout2.html" %}
+
+{% block container %}
+{% import "_macros.html" as macros %}
+
+    <form action="" method="post">
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.camposNuevos(form.ing,class='form-control')}}
+            </div>
+        </div>
+
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.camposNuevos(form.espa,class='form-control')}}
+            </div>
+        </div>
+
+        <input type="submit" id="btnS" value='Registrar' onclick="document.getElementById('btnO').value = 0;">
+
+        <div class="row control- group" >
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                <input type="radio" id="1" name="radio" value="espanol">
+                    <label for="espanol">Español</label><br>
+                <input type="radio" id="2" name="radio  " value="ingles">
+                    <label for="ingles">Ingles</label><br>
+            </div>
+        </div>
+
+        <div class="row control- group" method="POST" novalidate>
+            <div class="form-groupform-group col-xs-12 floating-label-form-group ontrols">
+                
+                {{macros.camposNuevos(form.palabra,class='form-control')}}
+            </div>
+        </div>
+        <input type="submit" id="btnS2"  value='Buscar' onclick="document.getElementById('btnO').value = 1;">
+        
+        <input type="text" id="btnO" name="btnO"  value='0' class="d-none">
+
+    </form>
+
+    <h1>Palabra :{{palabraResul}}</h1>
+    
+{%endblock%}
+
+
+

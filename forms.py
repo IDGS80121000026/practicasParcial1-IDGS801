@@ -2,7 +2,7 @@ from wtforms import Form
 from flask_wtf import FlaskForm
 from wtforms import StringField,TelField,IntegerField,FloatField
 from wtforms import EmailField
-from wtforms.validators import DataRequired, Email
+from wtforms import validators
 
 
 class UserForm(Form):
@@ -18,4 +18,19 @@ class Resis(Form):
     tolerancia= IntegerField('tolerancia')
     maxim= StringField('maxim')
     minm= StringField('minm')
+    
+class UserForm2(Form):
+    ing= StringField('ing'#,[
+        #validators.DataRequired(message='El campo es requerido'),
+        #validators.length(min=4,max=10, message='Ingresa una palabra valida')
+    #]
+    )
+    espa= StringField('espa'#,[
+        #validators.DataRequired(message='El campo es requerido'),
+        #validators.length(min=4,max=10, message='Ingresa una palabra valida')
+    #]
+    )
+    radio= StringField('radio')
+    palabra= StringField('palabra')
+    palabraResul = StringField('palabraResul')
     
